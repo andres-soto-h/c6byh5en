@@ -8,11 +8,11 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def create
-    product = Product.new(product_params)
-    if product.save
-      render json: product, status: 201
+    @product = Product.new(product_params)
+    if @product.save
+      render json: @product, status: 201
     else
-      render json: { errors: product.errors }, status: 422
+      render json: { errors: @product.errors }, status: 422
     end
   end
 
